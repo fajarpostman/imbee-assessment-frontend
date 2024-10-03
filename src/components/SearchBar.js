@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/Styling.css'
 
 const SearchBar = ({ onSearch }) => {
     const handleInputChange = (e) => {

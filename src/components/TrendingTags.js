@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import '../styles/Styling.css'
 
 const TrendingTags = ({ selectedTag, setSelectedTag }) => {
     const [tags, setTags] = useState([]);
@@ -14,20 +15,20 @@ const TrendingTags = ({ selectedTag, setSelectedTag }) => {
             setSelectedTag(result.data.items[0].name);
         };
         fetchTags();
-    }, []);
+    }, [setSelectedTag]);
 
     return (
-        <div className='trending-tags'>
-            {tags.map((tag) =>(
+        <div className="trending-tags">
+            {tags.map((tag) => (
                 <button
                     key={tag.name}
                     onClick={() => setSelectedTag(tag.name)}
-                    className={selectedTag == tag.name ? 'selected' : ''}
-                    style={{ borderRadios: '10px', margin: '5px', padding: '5px'}}>
-                        {tag.name}
+                    className={selectedTag === tag.name ? 'selected' : ''}
+                >
+                    {tag.name}
                 </button>
             ))}
-        </div>
+      </div>
     );
 };
 
