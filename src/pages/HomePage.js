@@ -7,12 +7,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const HomePage = () => {
   const [selectedTag, setSelectedTag] = useState('');
+  const [searchKeyword, setSearchKeyword] = useState(''); // Initialize state for search keyword
+
+  // Function to handle search from SearchBar
+  const handleSearch = (keyword) => {
+    setSearchKeyword(keyword); // Update searchKeyword state
+  };
 
   return (
     <div className="home-page">
-      <SearchBar onSearch={(keyword) => console.log('Search:', keyword)} />
+      <SearchBar onSearch={handleSearch} />
       <TrendingTags selectedTag={selectedTag} setSelectedTag={setSelectedTag} />
-      <QuestionList selectedTag={selectedTag} />
+      {/* Pass searchKeyword to QuestionList */}
+      <QuestionList selectedTag={selectedTag} searchKeyword={searchKeyword} />
     </div>
   );
 };

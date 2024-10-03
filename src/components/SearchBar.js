@@ -1,20 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/Styling.css'
 
 const SearchBar = ({ onSearch }) => {
-    const handleInputChange = (e) => {
-        onSearch(e.target.value);
+    const [keyword, setKeyword] = useState('');
+
+    const handleSearch = () => {
+        onSearch(keyword);
     };
 
     return (
-    <div className="search-bar">
-        <input
-            type="text"
-            placeholder="Cari Tag..."
-            onChange={handleInputChange}
-            style={{ padding: '10px', width: '100%' }}
-        />
-    </div>
+        <div className="search-bar">
+            <input
+                type='text'
+                placeholder='Search...'
+                value={keyword}
+                onChange={(e) => setKeyword(e.target.value)}
+            />
+            <button onClick={handleSearch}>Search</button>
+        </div>
     )
 }
 
