@@ -11,6 +11,11 @@ body {
     justify-content: center;
     margin-bottom: 20px;
   }
+
+  .button-search {
+    border-radius: 12px;
+    border-color: #8cc6ec;
+  }
   
   input[type="text"] {
     padding: 10px;
